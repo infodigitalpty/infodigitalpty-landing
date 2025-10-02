@@ -3,11 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "start": "astro preview --host 0.0.0.0",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "start": "astro preview"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/node": "^9.4.4",
