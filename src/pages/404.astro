@@ -1,0 +1,119 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404 | Página No Encontrada - Infodigitalpty">
+    <main>
+        <div class="error-container">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">¡Ruta Perdida en el Ciberespacio!</h2>
+            <p class="error-message">
+                Parece que esta dirección no existe o se ha movido. El enlace
+                que buscabas no se encuentra en nuestros registros digitales.
+            </p>
+            <a href="/" class="home-button">
+                Volver a la Base de Operaciones
+            </a>
+        </div>
+    </main>
+
+    <style>
+        /*
+        Añadimos aquí solo las animaciones necesarias y el CSS
+        de la tarjeta. El CSS del body, fuentes, y colores base
+        ya vienen de global.css a través de tu Layout.
+        */
+
+        /* Clases de Animación (Deben estar aquí para que funcionen con la card) */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes text-glow {
+            from {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            }
+            to {
+                text-shadow:
+                    0 2px 4px rgba(0, 0, 0, 0.2),
+                    0 0 10px var(--light-blue),
+                    0 0 20px var(--light-blue);
+            }
+        }
+
+        .error-container {
+            /* Card con efecto de difuminado y fondo sutil */
+            background: rgba(
+                0,
+                0,
+                0,
+                0.5
+            ); /* Fondo semitransparente para el "frosted glass" */
+            backdrop-filter: blur(10px); /* El efecto de difuminado (Blur) */
+            --webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); /* Sombra para levantar la card */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+            animation: fadeInUp 1s both; /* Usa tu animación para que aparezca */
+        }
+
+        .error-code {
+            font-family: "Inter", sans-serif; /* Usamos Inter que es la fuente gruesa */
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--light-blue);
+            text-shadow:
+                0 0 15px var(--light-blue),
+                0 0 30px var(--dark-blue); /* Efecto neón */
+            line-height: 1;
+            animation: text-glow 3s infinite alternate; /* Aplica tu animación de brillo */
+        }
+
+        .error-title {
+            font-family: "Inter", sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .home-button {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: var(--button-bg);
+            color: var(--button-text-color);
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 5px;
+            transition:
+                background-color 0.3s ease,
+                transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-button:hover {
+            background-color: var(--button-hover-bg);
+            transform: translateY(-2px);
+            color: var(--dark-blue);
+        }
+    </style>
+</Layout>
