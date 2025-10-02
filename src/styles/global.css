@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Poppins:wght@400&display=swap');
+
+:root {
+  --base-color: #568db0;
+  --light-blue: #78a6c8;
+  --dark-blue: #3d6b8e;
+  --text-color: #ffffff;
+  --button-bg: #ffffff;
+  --button-text-color: #3d6b8e;
+  --button-hover-bg: #f0f0f0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  margin: 0;
+  overflow: hidden;
+  /* Hide scrollbars caused by large background */
+  background-color: #000;
+  background-image: radial-gradient(ellipse at top, var(--dark-blue), transparent 60%),
+    radial-gradient(ellipse at bottom, var(--base-color), transparent 60%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+main {
+  padding: 2rem;
+}
+
+h1,
+p {
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  animation: fadeInUp 0.8s 0.2s both, text-glow 3s infinite alternate;
+}
+
+p {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.8s 0.6s both;
+  min-height: 2.5em;
+}
+
+#typed-text::after {
+  content: '|';
+  display: inline-block;
+  animation: blink-caret 0.75s step-end infinite;
+  color: var(--light-blue);
+}
+
+.highlight-word {
+  display: inline-block;
+  color: var(--light-blue);
+  animation: pulse-glow 2s infinite ease-in-out;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  animation: fadeInUp 0.8s 1s both;
+}
+
+.social-icon {
+  color: var(--text-color);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.social-icon:hover {
+  transform: scale(1.2) translateY(-5px);
+  color: var(--light-blue);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación para el brillo del texto */
+@keyframes text-glow {
+  from {
+    /* Estado normal con la sombra base */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  to {
+    /* Estado de brillo, manteniendo la sombra base para profundidad */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 10px var(--light-blue), 0 0 20px var(--light-blue);
+  }
+}
+
+/* Keyframes para el cursor parpadeante */
+@keyframes blink-caret {
+
+  from,
+  to {
+    color: transparent
+  }
+
+  50% {
+    color: var(--light-blue);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    transform: scale(1.05);
+    text-shadow: 0 0 15px var(--light-blue);
+  }
+}
